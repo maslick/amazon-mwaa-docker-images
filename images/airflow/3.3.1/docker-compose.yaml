@@ -69,12 +69,16 @@ x-airflow-common: &airflow-common
     MWAA__CORE__MWAA_SIGNAL_HANDLING_ENABLED: ${MWAA__CORE__MWAA_SIGNAL_HANDLING_ENABLED}
     MWAA__HEALTH_MONITORING_ENABLE_REVAMPED_HEALTHCHECK: ${MWAA__HEALTH_MONITORING_ENABLE_REVAMPED_HEALTHCHECK}
     MWAA__CORE__API_SERVER_URL: ${MWAA__CORE__API_SERVER_URL}
+    AIRFLOW__SECRETS__BACKEND: 'airflow.secrets.local_filesystem.LocalFilesystemBackend'
+    AIRFLOW__SECRETS__BACKEND_KWARGS: '{"variables_file_path": "/usr/local/airflow/variables.env", "connections_file_path": "/usr/local/airflow/connections.json"}'
 
   volumes:
     - ./dags:/usr/local/airflow/dags
     - ./plugins:/usr/local/airflow/plugins
     - ./requirements:/usr/local/airflow/requirements
     - ./startup:/usr/local/airflow/startup
+    - ./variables.env:/usr/local/airflow/variables.env
+    - ./connections.json:/usr/local/airflow/connections.json
 
   depends_on: &airflow-common-depends-on
     postgres:

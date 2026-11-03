@@ -537,7 +537,6 @@ def get_opinionated_airflow_config() -> Dict[str, str]:
         **_get_opinionated_airflow_core_config(),
         **_get_opinionated_airflow_api_config(),
         **_get_opinionated_airflow_scheduler_config(),
-        **_get_opinionated_airflow_secrets_config(),
         **_get_opinionated_airflow_usage_data_config(),
         **_get_opinionated_airflow_db_config(),
     }
