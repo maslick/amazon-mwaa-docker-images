@@ -275,6 +275,7 @@ async def main() -> None:
         print("Finished packaging requirements")
         return
 
+    environ["MWAA__CORE__REQUIREMENTS_PATH"] = "/usr/local/airflow/requirements/downloads/requirements.txt"
     await install_user_requirements(command, environ)
 
     if command == "test-requirements":

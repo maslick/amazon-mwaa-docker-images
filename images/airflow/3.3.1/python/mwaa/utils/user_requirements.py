@@ -169,6 +169,14 @@ def package_user_requirements(environ: dict[str, str]):
         f"--find-links {plugins_dir}\n"
         f"{original_content}\n"
     )
+
+    whl_req_path = downloads_dir / "requirements.txt"
+    whl_req_path.write_text(
+        f"--no-index\n"
+        f"--find-links {downloads_dir}\n"
+        f"{original_content}\n"
+    )
+
     logger.info(
         "Packaged requirements written to %s. Upload %s as your plugins.zip "
         "and use %s as your requirements.txt on MWAA.",

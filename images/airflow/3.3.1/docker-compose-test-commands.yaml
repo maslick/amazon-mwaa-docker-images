@@ -55,6 +55,7 @@ services:
     <<: *airflow-common
     command: package-requirements
     container_name: mwaa-331-package-requirements
+    restart: "no"
 
 volumes:
   postgres-db-volume:
