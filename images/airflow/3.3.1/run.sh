@@ -48,23 +48,20 @@ export FERNET_KEY
 
 ACCOUNT_ID="" # Put your account ID here.
 ENV_NAME="" # Choose an environment name here.
-REGION="us-west-2" # Keeping the region us-west-2 as default.
+REGION="eu-north-1" # Keeping the region us-west-2 as default.
 export REGION
 
 # CloudWatch logging mode: "auto" (on when ACCOUNT_ID+ENV_NAME are set), "true" (force on), "false" (force off).
-USE_CLOUDWATCH_LOGS="auto"
+USE_CLOUDWATCH_LOGS="false"
 
 # AWS Credentials
 # For local running without a real AWS account, dummy values are sufficient —
 # ElasticMQ (local SQS) does not validate credentials, but boto3 requires
 # non-empty values to sign requests. Replace with real credentials if you
 # want CloudWatch logging or other real AWS service access.
-AWS_ACCESS_KEY_ID="local" # Put your credentials here, or leave as "local" for offline use.
-AWS_SECRET_ACCESS_KEY="local" # Put your credentials here, or leave as "local" for offline use.
-AWS_SESSION_TOKEN="" # Put your credentials here (leave empty for offline use).
-export AWS_ACCESS_KEY_ID
-export AWS_SECRET_ACCESS_KEY
-export AWS_SESSION_TOKEN
+export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-local}" # Put your credentials here, or leave as "local" for offline use.
+export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-local}" # Put your credentials here, or leave as "local" for offline use.
+export AWS_SESSION_TOKEN="${AWS_SESSION_TOKEN:-}" # Put your credentials here (leave empty for offline use).
 
 # Set to http://host_name:8080
 MWAA__CORE__API_SERVER_URL="http://mwaa-331-webserver:8080"

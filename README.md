@@ -29,11 +29,13 @@ To experiment with the image using a vanilla Docker setup, follow these steps:
 python3 create_venvs.py --target <development | production>
 
 # Or create venv for a specific version only
-python3 create_venvs.py --target <development | production> --version 3.0.6
+python3 create_venvs.py --target <development | production> --version 3.3.1
 ```
 
 3. Build and run a supported Airflow version Docker image:
-   - `cd <amazon-mwaa-docker-images path>/images/airflow/2.9.2`
+   - `cd <amazon-mwaa-docker-images path>/images/airflow/3.3.1`
+   -  source ../../../activate-private-codeartifact.sh
+   - `./run.sh package-requirements`
    - `./run.sh`
 
    By default this runs fully locally (no AWS account needed): it builds the images, starts the containers, and writes logs inside the container at `/usr/local/airflow/logs/`. The web server is at `http://localhost:8080`.

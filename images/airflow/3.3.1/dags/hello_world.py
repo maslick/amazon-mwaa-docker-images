@@ -4,8 +4,7 @@
 from datetime import datetime, timedelta
 
 # Airflow imports.
-from airflow import DAG
-from airflow.decorators import task
+from airflow.sdk import DAG, task
 
 with DAG(
     dag_id="hello_world_dag",
